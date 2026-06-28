@@ -19,5 +19,5 @@ mkfs.fat -F 32 -n boot ${DISK_NAME}p3
 mount ${DISK_NAME}p1 /mnt
 
 mkdir -p /mnt/boot
-mount -o umask=077 ${DISK_NAME}p3/boot /mnt/boot
+mount -o umask=077 ${DISK_NAME}p3 /mnt/boot
 swapon ${DISK_NAME}p2
