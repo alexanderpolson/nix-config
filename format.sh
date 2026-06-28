@@ -5,11 +5,11 @@ set -e
 DISK_NAME=$1
 
 # Create partitions
-parted ${DISK_NAME} -- mklabel gpt
-parted ${DISK_NAME} -- mkpart root ext4 512MB -8GB
-parted ${DISK_NAME} -- mkpart swap linux-swap -8GB 100%
-parted ${DISK_NAME} -- mkpart ESP fat32 1MB 512MB
-parted ${DISK_NAME} -- set 3 esp on
+parted -s ${DISK_NAME} -- mklabel gpt
+parted -s ${DISK_NAME} -- mkpart root ext4 512MB -8GB
+parted -s ${DISK_NAME} -- mkpart swap linux-swap -8GB 100%
+parted -s ${DISK_NAME} -- mkpart ESP fat32 1MB 512MB
+parted -s ${DISK_NAME} -- set 3 esp on
 
 # Format all the partitions
 mkfs.ext4 -L nixos ${DISK_NAME}p1
