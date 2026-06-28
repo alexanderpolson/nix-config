@@ -16,7 +16,7 @@ mkfs.ext4 -L nixos ${DISK_NAME}p1
 mkswap -L swap ${DISK_NAME}p2
 mkfs.fat -F 32 -n boot ${DISK_NAME}p3
 
-mount ${DISK_NAME}p1/nixos /mnt
+mount ${DISK_NAME}p1 /mnt
 
 mkdir -p /mnt/boot
 mount -o umask=077 ${DISK_NAME}p3/boot /mnt/boot
